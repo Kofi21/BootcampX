@@ -15,7 +15,8 @@ FROM students
 JOIN cohorts ON cohorts.id = cohort_id
 WHERE cohorts.name LIKE '%${process.argv[2]}%'
 LIMIT ${process.argv[3] || 5};
-`
+`,
+    values
   )
   .then((res) => {
     res.rows.forEach((user) => {
